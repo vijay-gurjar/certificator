@@ -1,0 +1,25 @@
+<%= form_for create_certificate_path, url: create_certificate_path, method: :post do |f| %>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :district %>
+    <%= f.text_field :district, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :parliamentary_constituency %>
+    <%= f.text_field :parliamentary_constituency, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state, required: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

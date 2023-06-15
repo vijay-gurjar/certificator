@@ -1,0 +1,13 @@
+<%= form_for sign_in_path, url: sign_in_path, method: :post do |f| %>
+    <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :otp %>
+    <%= f.text_field :otp %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
