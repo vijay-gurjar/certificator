@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   post 'user/sign_in', as: 'sign_in'
   get 'certificate/index'
+  get 'certificate/show'
   post 'certificate/create_certificate', as: 'create_certificate'
   get 'certificate/download', as: 'download_certificate'
+
 end
