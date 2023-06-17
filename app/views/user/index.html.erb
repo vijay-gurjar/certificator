@@ -1,13 +1,27 @@
-<%= form_for sign_in_path, url: sign_in_path, method: :post do |f| %>
-    <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number, required: true %>
-  </div>
-  <div class="field">
-    <%= f.label :otp %>
-    <%= f.text_field :otp %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
+<%= form_with(model: User.new, url: sign_in_path, method: :post, class: "form-signin") do |f| %>
+  <div class="bg-user"></div>
+  <main class="form-sign-in">
+    <h1 class="h3">Login</h1>
+    <div class="form-floating">
+      <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", placeholder: "Phone Number", required: true %>
+      <%= f.label :phone_number, class: "floatingInput" %>
+    </div>
+    <div class="form-floating mt-1">
+      <%= f.text_field :otp, class: "form-control", id: "floatingPassword", placeholder: "OTP" %>
+      <%= f.label :otp, class: "floatingPassword" %>
+    </div>
+    <%# <div class="checkbox mb-3">
+            <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" value="1" name="remember_me" id="rememberMeSwitch">
+            <label class="form-check-label" for="rememberMeSwitch"> Remember me</label>
+            </div> %>
+    <%= f.submit "Submit", class: "w-100 btn btn-lg" %>
+    <p class="copyright pb-2">
+      Modi Mitra
+    </p>
+  </main>
 <% end %>
+
+
+ 
+  

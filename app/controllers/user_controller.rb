@@ -1,23 +1,32 @@
 class UserController < ApplicationController
 
-    def sign_in
-        @user = User.where(phone_number: params[:phone_number]).first_or_create!
+  def index
+  end
 
-        if params[:otp].blank?
-                @user.generate_otp 
-        end
+  def sign_in
+    user = User.find_or_initialize_by(phone_number: user_params[:phone_number])
 
-        if params[:otp]
-        is_otp_verified = @user.otp == params[:otp]
-
-        redirect_to root_path, notice: "Please enter valid OTP" if !is_otp_verified
-        redirect_to index_path, notice: "OTP verified Succesfully" if is_otp_verified
-        end
+    if user.new_record?
+      user.save
     end
 
+    otp_present = user_params[:otp].present?
+    user.generate_otp if !otp_present
 
-    private
-    def user_params
-        params.require(:user).permit(:phone_number)
+    if otp_present
+      is_otp_verified = user.otp == user_params[:otp]
+      if is_otp_verified
+        redirect_to certificate_index_path(u: user.id), flash: { notice: "OTP verified successfully" }
+      else
+        redirect_to root_path, flash: { notice: "Please enter a valid OTP" }
       end
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:phone_number, :otp)
+  end
+
 end

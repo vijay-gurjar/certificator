@@ -72,3 +72,7 @@ group :test do
 end
 
 gem 'bootstrap'
+gem 'pdfkit'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+

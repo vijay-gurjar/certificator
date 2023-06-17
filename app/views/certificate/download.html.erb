@@ -1,2 +1,76 @@
-<h1>Certificate#download</h1>
-<p>Find me in app/views/certificate/download.html.erb</p>
+
+
+
+
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body{
+        height: 700px;
+        background-repeat: no-repeat;
+        width: 900px;
+        font-family: 'Poppins', sans-serif;
+    <%# background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%); %>
+        background-image: url('https://storage.googleapis.com/vts-public/certificate.pdf%20-%20Page%201%20of%201.png');
+
+
+    }
+
+    .certificate-download-f {
+        gap: 9rem;
+        display: flex;
+        padding-top: 12.5rem;
+        position: fixed;
+    }
+
+    .certificate-f-p-download {
+        margin-left: 8.2rem;
+    }
+
+    .certificate-s-p-download {
+        margin-left: 0.5rem;
+    }
+    .certificate-th-p-download {
+        margin-left: -0.5rem;
+    }
+    .mt-1px {
+        margin-top: 1px;
+    }
+
+    .certificate-download-s {
+        gap: 9rem;
+        display: flex;
+        padding-top: 14.9rem;
+        position: fixed;
+    }
+
+    .certificate-download-s-p-f {
+        margin-left: 8.6rem;
+    }
+
+</style>
+<div class="preview">
+
+  <div class="certificate-download-f">
+
+    <p class="certificate-f-p-download mt-1px"><%= @certificate.name %></p>
+    <p class="mt-1px certificate-s-p-download"><%= @certificate.address %></p>
+    <p class="mt-1px certificate-th-p-download"><%= @certificate.zila %></p>
+    <p class="mt-1px certificate-s-p-download"><%= @certificate.lok_sabha %></p>
+  </div>
+
+  <div class="certificate-download-s">
+    <p class="certificate-download-s-p-f"><%= @certificate.state %></p>
+    <p style="margin-left: 2.5rem"><%= @certificate.date ? @certificate.date : "sd" %></p>
+  </div>
+
+</div>
+
