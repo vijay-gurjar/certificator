@@ -3,12 +3,12 @@
   <main class="form-sign-in">
     <h1 class="h3">Login</h1>
     <div class="form-floating">
-      <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", placeholder: "Phone Number", required: true %>
-      <%= f.label :phone_number, class: "floatingInput" %>
+      <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", maxlength: "10" ,minlength: "10" , placeholder: "Phone Number", required: true %>
+      <%= f.label :phone_number, class: "floatingInput  party-color" %>
     </div>
     <div class="form-floating mt-1">
-      <%= f.text_field :otp, class: "form-control", id: "floatingPassword", placeholder: "OTP" %>
-      <%= f.label :otp, class: "floatingPassword" %>
+      <%= f.text_field :otp, class: "form-control", id: "floatingPassword", maxlength: "6" ,minlength: "6" , placeholder: "OTP" %>
+      <%= f.label :otp, class: "floatingPassword  party-color" %>
     </div>
     <%# <div class="checkbox mb-3">
             <div class="form-check form-switch">
@@ -16,7 +16,7 @@
             <label class="form-check-label" for="rememberMeSwitch"> Remember me</label>
             </div> %>
     <%= f.submit "Submit", class: "w-100 btn btn-lg" %>
-    <p class="copyright pb-2">
+    <p class="copyright party-color pb-2">
       Modi Mitra
     </p>
   </main>

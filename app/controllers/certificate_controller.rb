@@ -1,13 +1,7 @@
 class CertificateController < ApplicationController
   def index
     @user = User.find(params[:u])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "hello-filename", template: "certificate/index", formats: [:html], layout: 'pdf',
-               orientation: "Landscape"
-      end
-    end
+    @certificate = Download.where(user_id: @user.id)
   end
 
   def show
@@ -16,7 +10,7 @@ class CertificateController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "hello-filename", template: "certificate/show", formats: [:html], layout: 'pdf',
+        render pdf: "hello-filename", template: "certificate/show", formats: [:html],
                orientation: "Landscape"
       end
     end
@@ -50,7 +44,10 @@ class CertificateController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "#{@certificate.name}s certificate", template: "certificate/download", formats: [:html], layout: 'pdf'
+        render pdf: "#{@certificate.name}s certificate", template: "certificate/download",
+               formats: [:html],
+               layout: 'pdf',
+               orientation: "Landscape"
 
       end
     end

@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   margin: auto;
   width: 900px;
+  font-size: 0.8rem;
 }
 
 .certificate-f {
@@ -13,34 +14,51 @@
 }
 
 .certificate-f-p {
-  margin-bottom: 1rem;
-  margin-left: 8rem;
+  margin-left: 7.7rem;
+  position: fixed;
+  width: 8.7rem;
 }
 
 .certificate-s-p {
-  margin-left: 1rem;
+  margin-left: 19.9rem;
+  position: fixed;
+  width: 8.9rem;
 }
 
 .certificate-th-p {
-  margin-left: -0.4rem;
+  margin-left: 31.3rem;
+  position: fixed;
+  width: 8.8rem;
 }
 
 .certificate-fr-p {
-  margin-left: 1rem;
+  margin-left: 45rem;
+  position: fixed;
+  width: 6rem;
 }
 
 .certificate-t {
   display: flex;
   gap: 10rem;
-  margin-top: -0.2rem;
+  margin-top: 2.4rem;
 }
 
 .certificate-t-f-p {
   margin-left: 8.5rem;
+  position: fixed;
+  width: 8.5rem;
 }
 
 .certificate-t-s-p {
-  margin-left: 2.3rem
+  position: fixed;
+  margin-left: 25rem;
+  width: 9rem;
 }
+
+.text-c {
+  text-align: center;
+}
+
+
 
 

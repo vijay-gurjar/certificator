@@ -128,6 +128,9 @@ form .form-row .textarea{
     transition: all 0.4s;
 }
 
+.text-white {
+    color: #ffffff
+}
 
 .submit-btn .input-data:hover .inner{
   left: 0;
@@ -171,29 +174,29 @@ form .form-row .textarea{
       <%= f.hidden_field :user_id, value: @user.id %>
       <div class="form-row">
         <div class="input-data">
-          <%= f.text_field :name, required: true %>
+          <%= f.text_field :name,class: "text-white", required: true %>
           <div class="underline"></div>
           <%= f.label :name %>
         </div>
         <div class="input-data">
-          <%= f.text_field :address, required: true %>
+          <%= f.text_field :address,class: "text-white", required: true %>
           <div class="underline"></div>
           <%= f.label :address %>
         </div>
       </div>
       <div class="form-row">
         <div class="input-data">
-          <%= f.text_field :zila, required: true %>
+          <%= f.text_field :zila,class: "text-white", required: true %>
           <div class="underline"></div>
           <%= f.label :zila %>
         </div>
         <div class="input-data">
-          <%= f.text_field :lok_sabha, required: true %>
+          <%= f.text_field :lok_sabha,class: "text-white", required: true %>
           <div class="underline"></div>
           <%= f.label :lok_sabha %>
         </div>
         <div class="input-data">
-          <%= f.text_field :state, required: true %>
+          <%= f.text_field :state,class: "text-white", required: true %>
           <div class="underline"></div>
           <%= f.label :state %>
         </div>

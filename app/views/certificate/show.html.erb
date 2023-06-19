@@ -1,20 +1,33 @@
-
-
 <div class="Certificate-preview">
 
   <div class="certificate-f">
+    <div class="certificate-f-p text-c">
+      <p style="" ><%= @certificate.name %></p>
+    </div>
 
-    <p style="" class="certificate-f-p"><%= @certificate.name %></p>
-    <p class="certificate-s-p"><%= @certificate.address %></p>
-    <p class="certificate-th-p"><%= @certificate.zila %></p>
-    <p class="certificate-fr-p"><%= @certificate.lok_sabha %></p>
+    <div class="certificate-s-p text-c">
+      <p ><%= @certificate.address %></p>
+    </div>
+
+    <div class="certificate-th-p text-c">
+      <p ><%= @certificate.zila %></p>
+    </div>
+
+    <div class="certificate-fr-p text-c">
+      <p ><%= @certificate.lok_sabha %></p>
+    </div>
+
   </div>
 
   <div class="certificate-t">
-    <p class="certificate-t-f-p"><%= @certificate.state %></p>
-    <p class="certificate-t-s-p"><%= @certificate.date ? @certificate.date : "sd" %></p>
+    <div class="certificate-t-f-p text-c">
+      <p ><%= @certificate.state %></p>
+    </div>
+
+    <div class="certificate-t-s-p text-c">
+      <p ><%= @certificate.date ? @certificate.date : Date.today %></p>
+    </div>
+
   </div>
-
-
 
 </div>
