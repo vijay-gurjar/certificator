@@ -1,7 +1,8 @@
 class CertificateController < ApplicationController
   def index
     @user = User.find(params[:u])
-    @certificate = Download.where(user_id: @user.id)
+    @certificate = Download.where(user_id: @user.id).first.certificate
+    @certificate = Certificate.new if @certificate.blank?
   end
 
   def show
@@ -23,9 +24,9 @@ class CertificateController < ApplicationController
   def create_certificate
     begin
       @certificate = Certificate.where(certificate_params).first_or_create!
-      if @certificate.new_record?
-        Download.where(user_id: params[:user_id], certificate_id: @certificate.id).first_or_create! if @certificate.save
-      end
+
+        Download.where(user_id: certificate_params[:user_id], certificate_id: @certificate.id).first_or_create!
+
 
       redirect_to certificate_show_path(u: certificate_params[:user_id],c:@certificate.id)
     rescue StandardError => e
@@ -41,6 +42,9 @@ class CertificateController < ApplicationController
   def download
     @user = User.find(params[:u])
     @certificate = Certificate.find_by(id: params[:c])
+    if @user.present? && @certificate.present?
+      Download.where(user_id: certificate_params[:user_id], certificate_id: @certificate.id).first_or_create!
+    end
     respond_to do |format|
       format.html
       format.pdf do
