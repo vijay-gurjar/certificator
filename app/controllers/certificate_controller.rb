@@ -1,7 +1,7 @@
 class CertificateController < ApplicationController
   def index
     @user = User.find(params[:u])
-    @certificate = Download.where(user_id: @user.id).first.certificate
+    @certificate = Download.where(user_id: @user.id).first&.certificate
     @certificate = Certificate.new if @certificate.blank?
   end
 
