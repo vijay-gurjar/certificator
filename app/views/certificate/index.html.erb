@@ -203,7 +203,7 @@ form .form-row .textarea{
           <%= f.label :lok_sabha, class: @certificate.name.present? ? "disabled-input" : "" %>
         </div>
         <div class="input-data">
-          <%= f.text_field :state,class: "text-white", required: true, value: "okay", disabled: @certificate.name.present? %>
+          <%= f.text_field :state,class: "text-white", required: true, disabled: @certificate.name.present? %>
           <div class="underline"></div>
           <%= f.label :state, class: @certificate.name.present? ? "disabled-input" : "" %>
         </div>
