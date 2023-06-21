@@ -24,10 +24,6 @@ class CertificateController < ApplicationController
   def create_certificate
     begin
       @certificate = Certificate.where(certificate_params).first_or_create!
-
-        Download.where(user_id: certificate_params[:user_id], certificate_id: @certificate.id).first_or_create!
-
-
       redirect_to certificate_show_path(u: certificate_params[:user_id],c:@certificate.id)
     rescue StandardError => e
       # Handle the error here
@@ -43,7 +39,7 @@ class CertificateController < ApplicationController
     @user = User.find(params[:u])
     @certificate = Certificate.find_by(id: params[:c])
     if @user.present? && @certificate.present?
-      Download.where(user_id: certificate_params[:user_id], certificate_id: @certificate.id).first_or_create!
+      Download.where(user_id: @user.id, certificate_id: @certificate.id).first_or_create!
     end
     respond_to do |format|
       format.html
