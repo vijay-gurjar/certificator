@@ -23,13 +23,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
-  encoding: utf8
-  database: m-mitra
-  username: postgres
-  password: postgres123
-  host: 34.131.192.177
-  port: 5432
+  database: Certificator_development_scratch
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

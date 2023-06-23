@@ -179,33 +179,34 @@ form .form-row .textarea{
     </div>
     <%= form_with(model: @certificate, url: create_certificate_path, method: :post, class: "form-signin") do |f| %>
       <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :date, value: Date.today %>
       <div class="form-row">
         <div class="input-data">
-          <%= f.text_field :name,class: "text-white   ", required: true, disabled: @certificate.name.present? %>
+          <%= f.text_field :name,class: "text-white   ", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
           <div class="underline"></div>
           <%= f.label :name, class: @certificate.name.present? ? "disabled-input" : ""%>
         </div>
         <div class="input-data">
-          <%= f.text_field :address,class: "text-white", required: true, disabled: @certificate.name.present? %>
+          <%= f.text_field :address,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
           <div class="underline"></div>
-          <%= f.label :address, class: @certificate.name.present? ? "disabled-input" : "" %>
+          <%= f.label :address, class: @certificate.address.present? ? "disabled-input" : "" %>
         </div>
       </div>
       <div class="form-row">
         <div class="input-data">
-          <%= f.text_field :zila,class: "text-white", required: true, disabled: @certificate.name.present? %>
+          <%= f.text_field :zila,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
           <div class="underline"></div>
-          <%= f.label :zila, class: @certificate.name.present? ? "disabled-input" : "" %>
+          <%= f.label :zila, class: @certificate.zila.present? ? "disabled-input" : "" %>
         </div>
         <div class="input-data">
-          <%= f.text_field :lok_sabha,class: "text-white", required: true, disabled: @certificate.name.present? %>
+          <%= f.text_field :lok_sabha,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
           <div class="underline"></div>
-          <%= f.label :lok_sabha, class: @certificate.name.present? ? "disabled-input" : "" %>
+          <%= f.label :lok_sabha, class: @certificate.lok_sabha.present? ? "disabled-input" : "" %>
         </div>
         <div class="input-data">
-          <%= f.text_field :state,class: "text-white", required: true, disabled: @certificate.name.present? %>
+          <%= f.text_field :state,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
           <div class="underline"></div>
-          <%= f.label :state, class: @certificate.name.present? ? "disabled-input" : "" %>
+          <%= f.label :state, class: @certificate.state.present? ? "disabled-input" : "" %>
         </div>
       </div>
       <div class="form-row">

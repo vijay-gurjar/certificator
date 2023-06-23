@@ -105,7 +105,7 @@
     </div>
 
     <div class="certificate-download-s-p-s text-center">
-      <p><%= @certificate.date ? @certificate.date : Date.today %></p>
+      <p><%= @certificate.date.strftime("%d/%m/%Y") %></p>
     </div>
   </div>
   </b>

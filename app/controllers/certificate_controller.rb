@@ -1,13 +1,19 @@
 class CertificateController < ApplicationController
   def index
-    @user = User.find(params[:u])
-    @certificate = Download.where(user_id: @user.id).first&.certificate
-    @certificate = Certificate.new if @certificate.blank?
+
+    if (current_user)
+      @user = current_user
+      @certificate = Certificate.where(user: current_user).first
+      @certificate = Certificate.new if @certificate.blank?
+    else
+      redirect_to root_path if !current_user
+    end
+
   end
 
   def show
-    @user = User.find(params[:u])
-    @certificate = Certificate.find_by(id: params[:c])
+
+    @certificate = Certificate.find_by(user: current_user)
     respond_to do |format|
       format.html
       format.pdf do
@@ -23,7 +29,15 @@ class CertificateController < ApplicationController
 
   def create_certificate
     begin
-      @certificate = Certificate.where(certificate_params).first_or_create!
+      @certificate = Certificate.where(user: current_user).first
+      if (@certificate)
+        Certificate.update!(certificate_params)
+      else
+        @certificate = Certificate.where(certificate_params).first_or_create!
+      end
+
+
+      redirect_to certificate_show_path
       redirect_to certificate_show_path(u: certificate_params[:user_id],c:@certificate.id)
     rescue StandardError => e
       # Handle the error here
@@ -36,10 +50,10 @@ class CertificateController < ApplicationController
   end
 
   def download
-    @user = User.find(params[:u])
-    @certificate = Certificate.find_by(id: params[:c])
-    if @user.present? && @certificate.present?
-      Download.where(user_id: @user.id, certificate_id: @certificate.id).first_or_create!
+    @certificate = Certificate.find_by(user: current_user)
+    if current_user.present? && @certificate.present?
+      @certificate.download_count = @certificate.download_count.to_i + 1
+      @certificate.save
     end
     respond_to do |format|
       format.html
@@ -55,14 +69,9 @@ class CertificateController < ApplicationController
 
   end
 
-  def render_pdf(html, filename:)
-    pdf = Grover.new(html, format: 'A4').to_pdf
-    send_data pdf, filename: filename, type: "application/pdf"
-  end
-
 
   private
   def certificate_params
-    params.require(:certificate).permit(:name, :address, :zila, :lok_sabha, :state, :user_id)
+    params.require(:certificate).permit(:name, :address, :zila, :lok_sabha, :state, :user_id, :date)
   end
 end
