@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-
-
+    has_one :certificate
 
     def generate_otp
         # if self.otp_created_at.present? && (self.otp_created_at < (DateTime.now - 5.minutes))
