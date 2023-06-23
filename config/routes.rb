@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'certificate/index'
   get 'certificate/show'
   post 'certificate/create_certificate', as: 'create_certificate'
-  get 'certificate/download', as: 'download_certificate'
+  get 'certificate/download',defaults: { format: :pdf }, as: 'download_certificate'
 
 end
