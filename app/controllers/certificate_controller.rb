@@ -1,12 +1,20 @@
 class CertificateController < ApplicationController
   def index
-    @user = User.find(params[:u])
-    @certificate = Download.where(user_id: @user.id)
+
+    if (current_user)
+      @user = current_user
+      @certificate = Certificate.where(user_id: current_user.id).first
+      @downloaded_c = Download.where(user_id: current_user.id)
+      puts current_user.id
+    else
+      redirect_to root_path if !current_user
+    end
+
   end
 
   def show
-    @user = User.find(params[:u])
-    @certificate = Certificate.find_by(id: params[:c])
+    @certificate = Certificate.find_by(user: current_user)
+    puts @certificate.name
     respond_to do |format|
       format.html
       format.pdf do
@@ -24,10 +32,10 @@ class CertificateController < ApplicationController
     begin
       @certificate = Certificate.where(certificate_params).first_or_create!
       if @certificate.new_record?
-        Download.where(user_id: params[:user_id], certificate_id: @certificate.id).first_or_create! if @certificate.save
+        Download.where(user_id: current_user.id, certificate_id: @certificate.id).first_or_create! if @certificate.save
       end
 
-      redirect_to certificate_show_path(u: certificate_params[:user_id],c:@certificate.id)
+      redirect_to certificate_show_path
     rescue StandardError => e
       # Handle the error here
       puts "An error occurred while creating the certificate: #{e.message}"
