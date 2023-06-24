@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    current_user = Rails.application.config.current_user
+     Rails.application.config.current_user
   end
 end
