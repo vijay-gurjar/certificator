@@ -14,6 +14,7 @@ class CertificateController < ApplicationController
   def show
 
     @certificate = Certificate.find_by(user: current_user)
+    puts "okay#{ @certificate.id }"
     respond_to do |format|
       format.html
       format.pdf do
@@ -36,9 +37,27 @@ class CertificateController < ApplicationController
         @certificate = Certificate.where(certificate_params).first_or_create!
       end
 
+      c_number_series = "BMM/23-"
+      c_number = ''
+
+      if (@certificate.certificate_number.nil?)
+        c_id = @certificate.id.to_s.length
+        if (c_id == 1)
+          c_number = "100#{@certificate.id}"
+        elsif (c_id == 2)
+          c_number = "10#{@certificate.id}"
+        elsif (c_id == 3)
+          c_number = "1#{@certificate.id}"
+        elsif (c_id >= 4)
+          c_number = "#{@certificate.id}"
+        end
+        @certificate.certificate_number = c_number_series + c_number
+        @certificate.save
+      end
+
+
 
       redirect_to certificate_show_path
-      redirect_to certificate_show_path(u: certificate_params[:user_id],c:@certificate.id)
     rescue StandardError => e
       # Handle the error here
       puts "An error occurred while creating the certificate: #{e.message}"
@@ -72,6 +91,6 @@ class CertificateController < ApplicationController
 
   private
   def certificate_params
-    params.require(:certificate).permit(:name, :address, :zila, :lok_sabha, :state, :user_id, :date)
+    params.require(:certificate).permit(:name, :address, :zila, :lok_sabha, :state, :user_id, :date, :certificate_number)
   end
 end
