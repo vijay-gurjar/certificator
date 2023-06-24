@@ -17,11 +17,15 @@ body{
 
 
 }
-.container{
-  max-width: 800px;
-  width: auto;
-  padding: 25px 40px 10px 40px;
-  box-shadow: 0px 0px 10px rgba(0,0,0.1);
+
+.container {
+    padding-bottom: 0.5rem;
+    backdrop-filter: blur(5px);
+    margin: auto;
+    max-width: 350px;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0.1)
+
 }
 .container .text{
   text-align: center;
@@ -139,13 +143,7 @@ form .form-row .textarea{
   z-index: 2;
 }
 
-.disabled-input {
-    margin-top: -3.5rem !important;
-    display: block !important;
-    position: inherit !important;
-}
-
-@media (max-width: 700px) {
+@media (max-width: 1500px) {
   .container .text{
     font-size: 30px;
   }
@@ -165,6 +163,8 @@ form .form-row .textarea{
 
 
 .main-div {
+    padding-top: 7rem;
+    max-width: 450px;
     height: 100vh;
     background-image: url('https://storage.googleapis.com/vts-public/BjpPublicPhoto.png');
     background-repeat: no-repeat;
@@ -174,56 +174,53 @@ form .form-row .textarea{
 }
 </style>
 <div class="main-div">
-  <div class="container">
-    <div class="text">
-      Certificate Details
-    </div>
-    <%= form_with(model: @certificate, url: create_certificate_path, method: :post, class: "form-signin") do |f| %>
-      <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.hidden_field :date, value: Date.today %>
-      <div class="form-row">
-        <div class="input-data">
-          <%= f.text_field :name,class: "text-white   ", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
-          <div class="underline"></div>
-          <%= f.label :name, class: @certificate.name.present? ? "disabled-input" : ""%>
-        </div>
-        <div class="input-data">
-          <%= f.text_field :address,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
-          <div class="underline"></div>
-          <%= f.label :address, class: @certificate.address.present? ? "disabled-input" : "" %>
-        </div>
+  <div>
+    <div class="container">
+      <div class="text">
+        Certificate Details
       </div>
-      <div class="form-row">
-        <div class="input-data">
-          <%= f.text_field :zila,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
-          <div class="underline"></div>
-          <%= f.label :zila, class: @certificate.zila.present? ? "disabled-input" : "" %>
-        </div>
-        <div class="input-data">
-          <%= f.text_field :lok_sabha,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
-          <div class="underline"></div>
-          <%= f.label :lok_sabha, class: @certificate.lok_sabha.present? ? "disabled-input" : "" %>
-        </div>
-        <div class="input-data">
-          <%= f.text_field :state,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
-          <div class="underline"></div>
-          <%= f.label :state, class: @certificate.state.present? ? "disabled-input" : "" %>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="input-data textarea">
-          <br />
-          <div class="form-row submit-btn">
-            <div class="input-data">
-              <div class="inner"></div>
-              <%= f.submit "Submit" %>
-            </div>
+      <%= form_with(model: @certificate, url: create_certificate_path, method: :post, class: "form-signin") do |f| %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :date, value: Date.today %>
+        <div class="form-row">
+          <div class="input-data">
+            <%= f.text_field :name,class: "text-white   ", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
+            <div class="underline"></div>
+            <%= f.label :name%>
+          </div>
+          <div class="input-data">
+            <%= f.text_field :address,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
+            <div class="underline"></div>
+            <%= f.label :address %>
           </div>
         </div>
-      </div>
-    <% end %>
-
+        <div class="form-row">
+          <div class="input-data">
+            <%= f.text_field :zila,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
+            <div class="underline"></div>
+            <%= f.label :zila %>
+          </div>
+          <div class="input-data">
+            <%= f.text_field :lok_sabha,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
+            <div class="underline"></div>
+            <%= f.label :lok_sabha %>
+          </div>
+          <div class="input-data">
+            <%= f.text_field :state,class: "text-white", required: true, disabled: @certificate.download_count ? @certificate.download_count <= ENV.fetch('CERTIFICATE_DOWNLOAD_COUNT').to_i : false %>
+            <div class="underline"></div>
+            <%= f.label :state %>
+          </div>
+        </div>
+        <div class="form-row submit-btn">
+          <div class="input-data">
+            <div class="inner"></div>
+            <%= f.submit "Submit" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+
 </div>
 
 

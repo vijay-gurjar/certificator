@@ -151,19 +151,16 @@ body {
   margin-right: 1rem;
 }
 
-.mb-25vh {
-  background-repeat: no-repeat;
-  background-image: url(https://storage.cloud.google.com/vts-public/Modi_Ji.png);
-  height: 50vh;
-  margin: auto;
-  max-width: 362PX;
-  width: auto;
+.modi-ji-photo {
+  display: block;
+  margin-left: auto;
 }
 
 .user-form {
   max-width: 400px;
   height: 100vh;
   margin: auto;
+  background: #faf6f6;
 }
 
 .design-div {
@@ -174,10 +171,12 @@ body {
 }
 
 .bjp-logo {
-  background-image: url(https://storage.googleapis.com/vts-public/BJP%20Logo.png);
-  height: 20rem;
-  width: 13rem;
+  background-image: url(https://storage.cloud.google.com/vts-public/Vector.svg);
+  height: 7rem;
+  width: 7rem;
   position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 
