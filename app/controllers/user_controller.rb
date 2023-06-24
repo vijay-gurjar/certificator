@@ -19,7 +19,7 @@ class UserController < ApplicationController
       if is_otp_verified
         redirect_to certificate_index_path(u: user.id), flash: { notice: "OTP verified successfully" }
       else
-        redirect_to root_path, flash: { notice: "Please enter a valid OTP" }
+        redirect_to root_path, flash: { alert: "Please enter a valid OTP" }
       end
     end
   end

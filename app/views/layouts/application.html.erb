@@ -8,9 +8,31 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var alertElements = document.querySelectorAll('.alert');
+
+            alertElements.forEach(function(element) {
+                element.addEventListener("click", function() {
+                    this.style.display = 'none';
+                });
+            });
+        });
+    </script>
   </head>
 
   <body>
+  <% if flash[:alert] %>
+    <div class="alert alert-extra alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="alert alert-extra alert-info">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>
