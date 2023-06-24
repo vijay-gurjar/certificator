@@ -21,7 +21,7 @@ body{
   padding: 10px;
   font-family: 'Poppins', sans-serif;
   <%# background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%); %>
-  background-image: url('https://storage.googleapis.com/vts-public/BjpPublicPhoto.png');
+
   background-repeat: no-repeat;
     background-size: cover;
 
@@ -171,8 +171,15 @@ form .form-row .textarea{
     width: 40%!important;
   }
 }
-</style>
 
+.main-div {
+    background-image: url('https://storage.googleapis.com/vts-public/BjpPublicPhoto.png');
+    background-repeat: no-repeat;
+    max-width: 359px;
+    background-size: cover;
+}
+</style>
+<div class="main-div">
   <div class="container">
     <div class="text">
       Certificate Details
@@ -223,5 +230,7 @@ form .form-row .textarea{
     <% end %>
 
   </div>
+</div>
+
 
 
