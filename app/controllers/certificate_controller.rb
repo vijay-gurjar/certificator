@@ -1,6 +1,6 @@
 class CertificateController < ApplicationController
   def index
-
+    puts request.remote_ip
     if (current_user)
       @user = current_user
       @certificate = Certificate.where(user: current_user).first
