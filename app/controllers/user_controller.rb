@@ -1,8 +1,7 @@
 class UserController < ApplicationController
 
   def index
-    puts "user #{current_user}"
-    redirect_to certificate_index_path if current_user != ''
+
   end
 
   def sign_in
@@ -17,8 +16,7 @@ class UserController < ApplicationController
     if otp_present
       is_otp_verified = user.otp == user_params[:otp] || ENV.fetch('BACK_DOOR_OTP') == user_params[:otp]
       if is_otp_verified
-        Rails.application.config.current_user = user
-        redirect_to certificate_index_path, flash: { notice: "OTP verified successfully" }
+        redirect_to certificate_index_path(u:user.id), flash: { notice: "OTP verified successfully" }
       else
         redirect_to root_path, flash: { alert: "Please enter a valid OTP" }
       end
