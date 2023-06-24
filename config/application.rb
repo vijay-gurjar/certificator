@@ -20,7 +20,9 @@ module Certificator
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.before_configuration do
+      Rails.configuration.current_user = ''
+    end
   end
-  custom_config = YAML.load_file("#{Rails.root}/config/custom_config.yml")
-  Rails.configuration.current_user = custom_config["my_global_variable"]
+
 end

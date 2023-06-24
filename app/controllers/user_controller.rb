@@ -1,7 +1,8 @@
 class UserController < ApplicationController
 
   def index
-    redirect_to certificate_index_path if current_user
+    puts "user #{current_user}"
+    redirect_to certificate_index_path if current_user != ''
   end
 
   def sign_in
