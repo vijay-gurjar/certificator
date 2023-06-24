@@ -1,25 +1,34 @@
 <%= form_with(model: User.new, url: sign_in_path, method: :post, class: "form-signin") do |f| %>
-  <div class="bg-user"></div>
-  <main class="form-sign-in">
-    <h1 class="h3">Login</h1>
-    <div class="form-floating">
-      <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", maxlength: "10" ,minlength: "10" , placeholder: "Phone Number", required: true %>
-      <%= f.label :phone_number, class: "floatingInput  party-color" %>
+  <div class="user-form">
+    <div class="bg-user"></div>
+    <div class="bjp-logo">
     </div>
-    <div class="form-floating mt-1">
-      <%= f.text_field :otp, class: "form-control", id: "floatingPassword", maxlength: "6" ,minlength: "6" , placeholder: "OTP" %>
-      <%= f.label :otp, class: "floatingPassword  party-color" %>
-    </div>
-    <%# <div class="checkbox mb-3">
+    <div class="mb-25vh"></div>
+    <main class="form-sign-in">
+      <h1 class="h3">Login</h1>
+      <div class="form-floating">
+        <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", maxlength: "10" ,minlength: "10" , placeholder: "Phone Number", required: true %>
+        <%= f.label :phone_number, class: "floatingInput  party-color" %>
+      </div>
+      <div class="form-floating mt-1">
+        <%= f.text_field :otp, class: "form-control", id: "floatingPassword", maxlength: "6" ,minlength: "6" , placeholder: "OTP" %>
+        <%= f.label :otp, class: "floatingPassword  party-color" %>
+      </div>
+      <%# <div class="checkbox mb-3">
             <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" value="1" name="remember_me" id="rememberMeSwitch">
             <label class="form-check-label" for="rememberMeSwitch"> Remember me</label>
             </div> %>
-    <%= f.submit "Submit", class: "w-100 btn btn-lg" %>
-    <p class="copyright party-color pb-2">
-      Modi Mitra
-    </p>
-  </main>
+      <%= f.submit "Submit", class: "w-100 btn btn-lg" %>
+      <p class="copyright party-color pb-2">
+        Modi Mitra
+      </p>
+    </main>
+    <div class="design-div">
+
+    </div>
+  </div>
+
 <% end %>
 
 
