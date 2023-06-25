@@ -1,6 +1,7 @@
 class UserController < ApplicationController
 
   def index
+    puts "current user  #{ current_user }"
     redirect_to certificate_index_path(u:session[:user_id]) if current_user
   end
 
