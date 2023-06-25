@@ -64,7 +64,7 @@ class CertificateController < ApplicationController
   end
 
   def download
-    @certificate = Certificate.find_by(user_id: params[:u])
+    @certificate = Certificate.find_by(user_id: params[:u],id:params[:c])
     if User.find(params[:u]).present? && @certificate.present?
       @certificate.download_count = @certificate.download_count.to_i + 1
       @certificate.save
