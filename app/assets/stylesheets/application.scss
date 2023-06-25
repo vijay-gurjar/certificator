@@ -163,11 +163,25 @@ body {
   background: #faf6f6;
 }
 
+.user-form-details {
+  max-width: 450px;
+  height: 100vh;
+  margin: auto;
+  background: #faf6f6;
+}
+
 .design-div {
   background-image: url(https://storage.googleapis.com/vts-public/bg_02%201.svg);
   width: 100%;
   height: 29rem;
   margin-top: -22rem;
+}
+
+.design-div-form {
+  background-image: url(https://storage.googleapis.com/vts-public/bg_02%201.svg);
+  width: 100%;
+  height: 29rem;
+  margin-top: -19rem;
 }
 
 .bjp-logo {
@@ -179,6 +193,16 @@ body {
   background-repeat: no-repeat;
 }
 
+.bjp-logo-div {
+  height: 30vh;
+  text-align: center;
+  padding: 4rem;
+  height: 30vh
+}
+
+.bjp-logo-form {
+  height: 15vh;
+}
 
 
 
