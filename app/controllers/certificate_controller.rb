@@ -14,6 +14,7 @@ class CertificateController < ApplicationController
     @certificate = Certificate.find_by(user: current_user,id:params[:c])
     respond_to do |format|
       format.html
+      render layout: 'preview'
       format.pdf do
         render pdf: "hello-filename", template: "certificate/show", formats: [:html],
                orientation: "Landscape"
@@ -27,9 +28,9 @@ class CertificateController < ApplicationController
 
   def create_certificate
     begin
-      @certificate = Certificate.where(user_id: params[:u]).first
+      @certificate = Certificate.where(user_id: certificate_params[:user_id]).first
       if (@certificate)
-        Certificate.update!(certificate_params)
+        @certificate.update!(certificate_params)
       else
         @certificate = Certificate.where(certificate_params).first_or_create!
       end
