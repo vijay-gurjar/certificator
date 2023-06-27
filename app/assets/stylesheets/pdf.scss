@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import 'bootstrap';
+
 .Certificate-preview {
   background-image: url('https://storage.googleapis.com/vts-public/certificate.pdf%20-%20Page%201%20of%201.png');
-  height: 100vh;
+  height: 25vh;
   background-repeat: no-repeat;
   margin: auto;
   width: 900px;
@@ -59,9 +62,6 @@
   text-align: center;
 }
 .download-btn-custom {
-  position: absolute;
-  bottom: 5rem;
-  right: 0;
   background-color: #F99234 !important;
   font-weight: 600;
 }

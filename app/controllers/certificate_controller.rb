@@ -14,6 +14,7 @@ class CertificateController < ApplicationController
     @certificate = Certificate.find_by(user_id: params[:u],id:params[:c])
     respond_to do |format|
       format.html
+      render layout: 'preview'
       format.pdf do
         render pdf: "hello-filename", template: "certificate/show", formats: [:html],
                orientation: "Landscape"
