@@ -27,9 +27,9 @@ class CertificateController < ApplicationController
 
   def create_certificate
     begin
-      @certificate = Certificate.where(user_id: params[:u]).first
+      @certificate = Certificate.where(user_id: certificate_params[:user_id]).first
       if (@certificate)
-        Certificate.update!(certificate_params)
+        @certificate.update!(certificate_params)
       else
         @certificate = Certificate.where(certificate_params).first_or_create!
       end
