@@ -2,7 +2,7 @@
 @import 'bootstrap';
 
 .Certificate-preview {
-  background-image: url('https://storage.googleapis.com/vts-public/certificate.pdf%20-%20Page%201%20of%201.png');
+  //background-image: url('https://storage.googleapis.com/vts-public/certificate.pdf%20-%20Page%201%20of%201.png');
   height: 25vh;
   background-repeat: no-repeat;
   margin: auto;
@@ -13,7 +13,7 @@
 .certificate-f {
   gap: 9rem;
   display: flex;
-  padding-top: 15rem;
+  margin-top: -27.9rem;
 }
 
 .certificate-f-p {
