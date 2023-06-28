@@ -24,6 +24,7 @@ class CertificateController < ApplicationController
   end
   
   def new
+    # "google-site-verification=EQo2itG2fMKjCdPrAZjnaaNPrKTDTGM5kDUv00upxWc"
   end
 
   def create_certificate
