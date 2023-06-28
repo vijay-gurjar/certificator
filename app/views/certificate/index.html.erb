@@ -9,23 +9,23 @@
     <main class="form-sign-in">
       <h1 class="h3">Certificate</h1>
       <div class="form-floating">
-        <%= f.text_field :name, class: "form-control", id: "floatingInput", placeholder: "Phone Number", required: true %>
+        <%= f.text_field :name, class: "form-control", id: "floatingInput", placeholder: "Name", required: true %>
         <%= f.label :name, class: "floatingInput  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :address, class: "form-control", id: "floatingPassword", maxlength: "20" , placeholder: "Address" %>
+        <%= f.text_field :address, class: "form-control", id: "floatingPassword", maxlength: "20" , placeholder: "Address", required: true %>
         <%= f.label :address, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :zila, class: "form-control", id: "floatingPassword", placeholder: "Zila" %>
+        <%= f.text_field :zila, class: "form-control", id: "floatingPassword", placeholder: "Zila", required: true %>
         <%= f.label :zila, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :lok_sabha, class: "form-control", id: "floatingPassword", placeholder: "Lok Sabha" %>
+        <%= f.text_field :lok_sabha, class: "form-control", id: "floatingPassword", placeholder: "Lok Sabha", required: true %>
         <%= f.label :lok_sabha, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :state, class: "form-control", id: "floatingPassword", placeholder: "State" %>
+        <%= f.text_field :state, class: "form-control", id: "floatingPassword", placeholder: "State", required: true %>
         <%= f.label :state, class: "floatingPassword  party-color" %>
       </div>
 
