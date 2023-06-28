@@ -1,0 +1,138 @@
+<div class="container">
+  <h1>Admin Dashboard</h1>
+
+  <h2>Users</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Total Users: <span id="totalUsers"><%=@total_users.count %></span></h4>
+    <a href="#" class="btn btn-primary" >Download All Users</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @total_users.each_with_index do |user, index| %>
+      <% if index < 3 %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.phone_number %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>Certificate</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Total Certificates: <span id="totalPosts"><%= @total_certificates.count %></span></h4>
+    <a href="#" class="btn btn-primary" >Download All Certificates</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Zila</th>
+      <th>Lok Sabha</th>
+      <th>State</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% @total_certificates.each_with_index do |certificate, index| %>
+      <% if index < 3 %>
+        <tr>
+          <td><%= certificate.name %></td>
+          <td><%= certificate.address %></td>
+          <td><%= certificate.zila %></td>
+          <td><%= certificate.lok_sabha %></td>
+          <td><%= certificate.state %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>State Report</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Total States: <span id="totalPosts"><%= @state_wise_report.count %></span></h4>
+    <a href="#" class="btn btn-primary" >State wise report</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>State Name</th>
+      <th>Total Certificate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @state_wise_report.each_with_index do |state, index| %>
+      <% if index < 3 %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= state[0] %></td>
+          <td><%= state[1] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>Lok Sabha Report</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Total Lok Sabhas : <span id="totalPosts"><%= @lok_sabha_wise_report.count %></span></h4>
+    <a href="#" class="btn btn-primary" >zila wise report</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Lok Sabha Name</th>
+      <th>Total Certificate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @lok_sabha_wise_report.each_with_index do |lok_sabha, index| %>
+      <% if index < 3 %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= lok_sabha[0] %></td>
+          <td><%= lok_sabha[1] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+    </tbody>
+  </table>
+
+
+  <h2>Zila Report</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Total Zilas: <span id="totalPosts"><%= @zila_wise_report.count %></span></h4>
+    <a href="#" class="btn btn-primary" >zila wise report</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Zila Name</th>
+      <th>Total Certificate </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @zila_wise_report.each_with_index do |zila, index| %>
+      <% if index < 3 %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= zila[0] %></td>
+          <td><%= zila[1] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
