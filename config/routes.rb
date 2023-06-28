@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/index'
   root "user#index"
 
   post 'user/sign_in', as: 'sign_in'
