@@ -78,7 +78,6 @@ class CertificateController < ApplicationController
                formats: [:html],
                layout: 'pdf',
                orientation: "Landscape"
-
       end
     end
 

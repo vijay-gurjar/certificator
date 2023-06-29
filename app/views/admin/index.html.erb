@@ -4,7 +4,8 @@
   <h2>Users</h2>
   <div class="d-flex justify-content-between">
     <h4>Total Users: <span id="totalUsers"><%=@total_users.count %></span></h4>
-    <a href="#" class="btn btn-primary" >Download All Users</a>
+    <%= link_to "Download All Users", download_data_path(type:"user"), class: "btn btn-primary" %>
+
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -28,7 +29,7 @@
   <h2>Certificate</h2>
   <div class="d-flex justify-content-between">
     <h4>Total Certificates: <span id="totalPosts"><%= @total_certificates.count %></span></h4>
-    <a href="#" class="btn btn-primary" >Download All Certificates</a>
+    <%= link_to "Download All Certificates", download_data_path(type:"certificate"), class: "btn btn-primary" %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -59,7 +60,7 @@
   <h2>State Report</h2>
   <div class="d-flex justify-content-between">
     <h4>Total States: <span id="totalPosts"><%= @state_wise_report.count %></span></h4>
-    <a href="#" class="btn btn-primary" >State wise report</a>
+    <%= link_to "State wise report", download_report_path(type:"state"), class: "btn btn-primary" %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -85,7 +86,7 @@
   <h2>Lok Sabha Report</h2>
   <div class="d-flex justify-content-between">
     <h4>Total Lok Sabhas : <span id="totalPosts"><%= @lok_sabha_wise_report.count %></span></h4>
-    <a href="#" class="btn btn-primary" >zila wise report</a>
+    <%= link_to "Lok Sabha wise report", download_report_path(type:"lok_sabha"), class: "btn btn-primary" %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -112,7 +113,7 @@
   <h2>Zila Report</h2>
   <div class="d-flex justify-content-between">
     <h4>Total Zilas: <span id="totalPosts"><%= @zila_wise_report.count %></span></h4>
-    <a href="#" class="btn btn-primary" >zila wise report</a>
+    <%= link_to "Zila wise report", download_report_path(type:"zila"), class: "btn btn-primary" %>
   </div>
   <table class="table table-striped">
     <thead class="thead-dark">
