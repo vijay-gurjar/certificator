@@ -1,13 +1,13 @@
 <%= form_with(model: User.new, url: sign_in_path, method: :post, class: "form-signin") do |f| %>
   <div class="user-form">
     <div class="bjp-logo-login-div">
-      <img class="bjp-logo-login" src="https://storage.googleapis.com/vts-public/BJP%20Logo%201.svg" alt="bjp logo">
+      <%= image_tag('BJP Logo 1.svg', class: 'bjp-logo-login', alt: 'bjp logo') %>
       <p style="margin-left: 1.5rem;" class="party-name party-color">भाजपा</p>
     </div>
 
 
     <div style="height: 40vh">
-      <img class="modi-ji-photo" src="https://storage.googleapis.com/vts-public/twitter_1%201.svg" />
+      <%= image_tag('twitter_1 1.svg', class: 'modi-ji-photo', alt: 'modi ji') %>
     </div>
     <main style="height: 43vh" class="form-sign-in">
       <h1 class="h3">Login</h1>
