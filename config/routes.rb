@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   get 'certificate/download', defaults: { format: :pdf }, as: 'download_certificate'
   get 'admin/download_data', as: "download_data"
   get 'admin/download_report', as: "download_report"
-  match '*unmatched', to: 'application#not_found_method', via: :all
 
 end
