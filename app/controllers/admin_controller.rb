@@ -18,7 +18,7 @@ class AdminController < ApplicationController
       select_attr = "name, address, zila, lok_sabha, state"
     end
 
-    data = modal.all.order(name: :asc).select(select_attr)
+    data = modal.all.order(id: :asc).select(select_attr)
     file = generate_download_file(data)
     send_file file.path, filename: 'data.csv', type: 'text/csv'
   end
