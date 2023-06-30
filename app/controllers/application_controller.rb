@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
     render file: Rails.public_path.join('404.html'), status: :not_found, layout: false
   end
 
-
-
   def render_500(exception)
     logger.error(exception.message)
     render template: 'error/500', status: :internal_server_error
