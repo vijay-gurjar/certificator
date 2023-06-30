@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
   def index
     puts "current user  #{ current_user }"
-    redirect_to certificate_index_path(u:session[:user_id]) if current_user
+    redirect_to certificate_index_path if current_user
   end
 
   def sign_in
@@ -11,10 +11,8 @@ class UserController < ApplicationController
     if user.new_record?
       user.save
     end
-
-
         session[:user_id] = user.id
-        redirect_to certificate_index_path(u:user.id), flash: { notice: "OTP verified successfully" }
+        redirect_to certificate_index_path, flash: { notice: "OTP verified successfully" }
   end
 
   private
