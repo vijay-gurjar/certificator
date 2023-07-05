@@ -3,11 +3,13 @@ class AdminController < ApplicationController
   include AdminHelper
 
   def index
-    @total_users = User.all.distinct.order(id: :asc)
-    @total_certificates = Certificate.all.distinct.order(id: :asc)
-    @state_wise_report = Certificate.group(:state).count
-    @zila_wise_report = Certificate.group(:zila).count
-    @lok_sabha_wise_report = Certificate.group(:lok_sabha).count
+    extra_user_number = ENV.fetch("UNIQ_PHONE_NUMBERS").split(',')
+    puts extra_user_number
+    @total_users = User.where.not(phone_number:extra_user_number).distinct.order(id: :desc)
+    @total_certificates = Certificate.where(user:@total_users).distinct
+    @state_wise_report = @total_certificates.group(:state).count
+    @zila_wise_report = @total_certificates.group(:zila).count
+    @lok_sabha_wise_report = @total_certificates.group(:lok_sabha).count
   end
 
   def download_data
@@ -18,7 +20,7 @@ class AdminController < ApplicationController
       select_attr = "name, address, zila, lok_sabha, state"
     end
 
-    data = modal.all.order(id: :asc).select(select_attr)
+    data = modal.all.select(select_attr)
     file = generate_download_file(data)
     send_file file.path, filename: 'data.csv', type: 'text/csv'
   end
