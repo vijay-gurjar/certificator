@@ -1,6 +1,13 @@
 <div class="container">
   <h1>Admin Dashboard</h1>
 
+  <h2>Total Downloads</h2>
+  <div class="d-flex justify-content-between">
+    <h4>Count => <span id="totalPosts"><b>
+      <%= @total_certificates_download %>
+    </b> </span></h4>
+  </div>
+
   <h2>Users</h2>
   <div class="d-flex justify-content-between">
     <h4>Total Users: <span id="totalUsers"><%=@total_users.count %></span></h4>
@@ -135,4 +142,5 @@
     <% end %>
     </tbody>
   </table>
+
 </div>

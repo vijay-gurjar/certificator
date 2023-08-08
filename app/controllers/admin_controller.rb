@@ -4,12 +4,12 @@ class AdminController < ApplicationController
 
   def index
     extra_user_number = ENV.fetch("UNIQ_PHONE_NUMBERS").split(',')
-    puts extra_user_number
     @total_users = User.where.not(phone_number:extra_user_number).distinct.order(id: :desc)
     @total_certificates = Certificate.where(user:@total_users).distinct
     @state_wise_report = @total_certificates.group(:state).count
     @zila_wise_report = @total_certificates.group(:zila).count
     @lok_sabha_wise_report = @total_certificates.group(:lok_sabha).count
+    @total_certificates_download = Certificate.sum(:download_count)
   end
 
   def download_data
@@ -39,6 +39,7 @@ class AdminController < ApplicationController
   end
 
   def check_valid_user
-     ENV.fetch("UNIQ_PHONE_NUMBERS").include?(current_user.phone_number)
+    extra_user_number = ENV.fetch("UNIQ_PHONE_NUMBERS").split(',')
+    extra_user_number.include?(current_user.phone_number)
   end
 end

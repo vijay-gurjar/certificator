@@ -58,7 +58,6 @@ class CertificateController < ApplicationController
     rescue StandardError => e
       # Handle the error here
       puts "An error occurred while creating the certificate: #{e.message}"
-
     end
   end
   def preview
@@ -75,18 +74,17 @@ class CertificateController < ApplicationController
       format.html
       format.pdf do
         render pdf: "#{@certificate.name}s certificate", template: "certificate/download",
+               encoding: 'utf-8',
                formats: [:html],
                layout: 'pdf',
                orientation: "Landscape"
       end
     end
-
-
   end
 
 
   private
   def certificate_params
-    params.require(:certificate).permit(:name, :address, :zila, :lok_sabha, :state, :user_id, :date, :certificate_number)
+    params.require(:certificate).permit(:name,:vidhan_sabha, :address, :zila, :lok_sabha, :state, :user_id, :date, :certificate_number)
   end
 end

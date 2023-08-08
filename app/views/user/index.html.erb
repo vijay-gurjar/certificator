@@ -9,11 +9,23 @@
     <div style="height: 40vh">
       <%= image_tag('twitter_1 1.svg', class: 'modi-ji-photo', alt: 'modi ji') %>
     </div>
-    <main style="height: 43vh" class="form-sign-in">
+    <main style="height: 50vh" class="form-sign-in">
       <h1 class="h3">Login</h1>
-      <div class="form-floating mt-5">
+
+      <% if @invalid_otp.present?  %>
+        <div class="invalid-otp-msg">
+          <P><%= @invalid_otp %></P>
+        </div>
+        <% end %>
+
+      <div class="form-floating <%= @margin_up %>">
         <%= f.text_field :phone_number, class: "form-control", id: "floatingInput", maxlength: "10" ,minlength: "10" , placeholder: "Phone Number", required: true %>
         <%= f.label :phone_number, class: "floatingInput  party-color" %>
+      </div>
+
+      <div class="form-floating mt-1">
+        <%= f.text_field :otp, class: "form-control", id: "floatingPassword", maxlength: "6" ,minlength: "6" , placeholder: "OTP",required: true   %>
+        <%= f.label :otp, class: "floatingPassword  party-color" %>
       </div>
 
       <%= f.submit "Submit", class: "w-100 party-color btn btn-lg" %>

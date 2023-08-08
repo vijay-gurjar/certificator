@@ -54,6 +54,7 @@ body {
 }
 
 .form-sign-in {
+  position: inherit;
   margin: auto;
   width: 100%;
   max-width: 330px;
@@ -219,6 +220,11 @@ body {
   height: 13vh;
 }
 
+.invalid-otp-msg  {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+}
 
 
 
