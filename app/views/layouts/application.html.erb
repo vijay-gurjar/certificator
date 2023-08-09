@@ -18,6 +18,20 @@
                 });
             });
         });
+
+
+        function sanitizePhoneNumber(inputField) {
+            inputField.value = inputField.value.replace(/\D/g, ''); // Replace non-numeric characters with an empty string
+
+            // Check if the first digit is greater than 4
+            if (inputField.value.length > 0 && parseInt(inputField.value[0]) <= 4) {
+                inputField.value = ''; // Clear the input if the first digit is not greater than 4
+            }
+        }
+
+        function sanitizeName(inputField) {
+            inputField.value = inputField.value.replace(/[^A-Za-z\u0900-\u097F\s]/g, ''); // Replace non-English/Hindi characters and non-space whitespace with an empty string
+        }
     </script>
   </head>
 

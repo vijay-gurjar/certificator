@@ -9,27 +9,27 @@
     <main class="form-sign-in">
       <h1 class="h3">Certificate</h1>
       <div class="form-floating">
-        <%= f.text_field :name, class: "form-control", id: "floatingInput", placeholder: "Name", required: true %>
+        <%= f.text_field :name, class: "form-control", id: "floatingInput", placeholder: "Name", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :name, class: "floatingInput  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :address, class: "form-control", id: "floatingPassword", maxlength: "20" , placeholder: "Address", required: true %>
+        <%= f.text_field :address, class: "form-control", id: "floatingPassword", maxlength: "20" , placeholder: "Address", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :address, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :vidhan_sabha, class: "form-control", id: "floatingPassword", placeholder: "Vidhan Sabha", required: true %>
+        <%= f.text_field :vidhan_sabha, class: "form-control", id: "floatingPassword", placeholder: "Vidhan Sabha", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :vidhan_sabha , class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :zila, class: "form-control", id: "floatingPassword", placeholder: "Zila", required: true %>
+        <%= f.text_field :zila, class: "form-control", id: "floatingPassword", placeholder: "Zila", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :zila, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :lok_sabha, class: "form-control", id: "floatingPassword", placeholder: "Lok Sabha", required: true %>
+        <%= f.text_field :lok_sabha, class: "form-control", id: "floatingPassword", placeholder: "Lok Sabha", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :lok_sabha, class: "floatingPassword  party-color" %>
       </div>
       <div class="form-floating mt-1">
-        <%= f.text_field :state, class: "form-control", id: "floatingPassword", placeholder: "State", required: true %>
+        <%= f.text_field :state, class: "form-control", id: "floatingPassword", placeholder: "State", required: true, oninput: "sanitizeName(this)" %>
         <%= f.label :state, class: "floatingPassword  party-color" %>
       </div>
 
