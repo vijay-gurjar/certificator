@@ -31,7 +31,6 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-    config.hosts << "ec2-54-80-44-224.compute-1.amazonaws.com"
 
   
 
